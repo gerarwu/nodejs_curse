@@ -1,6 +1,5 @@
 var Events = require("events");
 
-
 class Corredor extends Events {
 
     constructor( nombre ){
@@ -18,16 +17,15 @@ class Corredor extends Events {
             this.km += 1;
             this.emit('kilometro', this.nombre, this.km);
         }, 2000 );
-        
-
     }    
-
 }
 
 var kipchoge = new Corredor('kipchoge');
+kipchoge.on("kilometro", ( n, k )=>  console.log(n, "Se encuentra en el kilometro ", k) );
+setTimeout(()=> kipchoge.iniciar(), 500);
 
-kipchoge.on("kilometro", (  n, k )=>{
-    console.log(n, "Se encuentra en el kilometro ", k);
-});
 
-kipchoge.iniciar();
+var lelisaDesisa = new Corredor('Lelisa Desisa');
+lelisaDesisa.on("kilometro", ( n, k )=>  console.log(n, "Se encuentra en el kilometro ", k) );
+lelisaDesisa.iniciar();
+
