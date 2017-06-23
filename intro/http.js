@@ -17,6 +17,6 @@ var request = https.request(req, (response) => {
        console.log(response.headers);
     });
 
-});
+}); 
 
 request.end(); // es un canal tipo WriteStream que lanza la comunicacion del request.
